@@ -12,33 +12,24 @@
 	<packaging>pom</packaging>
 	<dependencies>
 		<dependency>
-			<!-- 依赖taotao-comon这个工程，引入这三个坐标就好了 -->
+			<!--依赖taotao-comon这个工程，引入这三个坐标就好了 -->
 			<groupId>com.taotao</groupId>
 			<artifactId>taotao-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
 	</dependencies>
-	<modules>
-		<module>taotao-manager-pojo</module>
-		<module>taotao-manager-mapper</module>
-		<module>taotao-manager-service</module>
-		<module>taotao-manager-web</module>
-	</modules>
-
 	<build>
 		<plugins>
-			<!-- 配置Tomcat插件 -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<configuration>
-					<port>8080</port>
-					<path>/</path>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-
+	<modules>
+		<module>taotao-manager-pojo</module>
+		<module>taotao-manager-dao</module>
+		<module>taotao-manager-service</module>
+		<module>taotao-manager-web</module>
+	</modules>
 </project>
