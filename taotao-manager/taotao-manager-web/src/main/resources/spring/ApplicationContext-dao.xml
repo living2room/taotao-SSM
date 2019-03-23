@@ -8,10 +8,6 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
-	<!-- 注册Spring注解的处理类 -->
-	<context:annotation-config />
-	<!-- 设置Spring注解扫描路径 -->
-	<context:component-scan base-package="com.taotao.controller" />
 	<!-- 引入jdbc配置文件 -->
 	<context:property-placeholder location="classpath:properties/db.properties" />
 	<!-- 创建jdbc数据源 -->
@@ -25,40 +21,20 @@
 		<property name="minIdle" value="5" />
 	</bean>
 	<!-- 配置sqlSession -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
 		<property name="dataSource" ref="dataSource" />
-		<!-- PageHelper插件 -->
-		<property name="plugins">
-			<array>
-				<bean class="com.github.pagehelper.PageInterceptor">
-					<property name="properties">
-						<!-- config params as the following -->
-						<value>
-							dialect=mysql
-							offsetAsPageNum=false
-							rowBoundsWithCount=false
-							pageSizeZero=true
-							reasonable=false
-							supportMethodsArguments=false
-							returnPageInfo=none
-						</value>
-					</property>
-				</bean>
-			</array>
-		</property>
 	</bean>
 
 	<!-- 包扫描器 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.taotao.mapper" />
+		 <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
-
-	<!-- 可以通过注解控制事务 -->
+ 	<!-- 可以通过注解控制事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
 </beans>
