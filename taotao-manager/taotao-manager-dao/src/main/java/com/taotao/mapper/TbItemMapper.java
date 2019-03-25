@@ -1,11 +1,16 @@
 package com.taotao.mapper;
 
-import com.taotao.pojo.TbItem;
-import com.taotao.pojo.TbItemExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemExample;
+
+
 public interface TbItemMapper {
+	
+	
     long countByExample(TbItemExample example);
 
     int deleteByExample(TbItemExample example);

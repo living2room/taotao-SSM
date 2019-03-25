@@ -14,7 +14,7 @@ import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
 import com.taotao.service.ItemService;
 
-@Service("ItemService")
+@Service
 public class ItemServiceImpl implements ItemService{
 	
 	@Autowired(required=false)
@@ -33,8 +33,7 @@ public class ItemServiceImpl implements ItemService{
 		result.setRows(Ilist);
 		PageInfo<TbItem> info = new PageInfo<TbItem>(Ilist);
 		result.setTotal(info.getTotal());
-		
-		return result;
+		return result; 
 	}
 
 }

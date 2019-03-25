@@ -9,7 +9,7 @@
     <!-- <mvc:default-servlet-handler />  -->
 	<!-- if you use annotation you must configure following setting -->
 	<mvc:annotation-driven />
-	<context:component-scan base-package="com.taotao.controller" />
+	<context:component-scan base-package="com.taotao" />
 	<!-- 添加静态资源的映射 -->
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**" />
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />

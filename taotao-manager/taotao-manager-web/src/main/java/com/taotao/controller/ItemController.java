@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.service.ItemService;
 	
-@Controller("ItemController")
+@Controller("itemController")
 public class ItemController {
+	
 	@Autowired(required=false)
 	@Qualifier("itemService")
 	private ItemService itemService;
