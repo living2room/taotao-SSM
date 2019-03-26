@@ -5,12 +5,17 @@
 	id="taotao" version="2.5">
 	<display-name>taotao-manager</display-name>
 	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 	<!-- 加载spring容器 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/ApplicationContext-*.xml</param-value>
+		<param-value>classpath:spring/applicationContext-*.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -35,14 +40,12 @@
 		<!-- contextConfigLocation不是必须的， 如果不配置contextConfigLocation， springmvc的配置文件默认在：WEB-INF/servlet的name+"-servlet.xml" -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/ApplicationContext-mvc.xml</param-value>
+			<param-value>classpath:spring/springmvc.xml</param-value>
 		</init-param>
-		<!-- Servlet随着Tomcat启动而启动 -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>taotao-manager</servlet-name>
-		<!-- 拦截所有资源，静态资源（JS）也会拦截 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 </web-app>

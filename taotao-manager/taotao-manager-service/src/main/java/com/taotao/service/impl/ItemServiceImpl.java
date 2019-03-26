@@ -18,8 +18,7 @@ import com.taotao.service.ItemService;
 @Service
 public class ItemServiceImpl implements ItemService {
 
-	@Autowired(required = false)
-	@Qualifier("itemMapper")
+	@Autowired
 	private TbItemMapper itemMapper;
 
 	@Override

@@ -11,11 +11,10 @@ import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 	
-@Controller("itemController")
+@Controller("ItemController")
 public class ItemController {
 	
-	@Autowired(required=false)
-	@Qualifier("itemService")
+	@Autowired
 	private ItemService itemService;
 
 	@RequestMapping("/item/{itemId}")
