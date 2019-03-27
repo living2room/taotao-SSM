@@ -12,19 +12,20 @@ import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 	
 @Controller("ItemController")
+@RequestMapping("item")
 public class ItemController {
 	
 	@Autowired
 	private ItemService itemService;
 
-	@RequestMapping("/item/{itemId}")
+	@RequestMapping("{itemId}")
 	@ResponseBody
 	public TbItem getItemById(@PathVariable Long itemId) {
 		TbItem tbItem = itemService.getItemById(itemId);
 		return tbItem;
 	}
 			
-	@RequestMapping("/item/list")
+	@RequestMapping("list")
 	@ResponseBody
 	public EUDataGridResult getItemList(Integer page, Integer rows){
 		EUDataGridResult result = itemService.getItemList(page, rows);
